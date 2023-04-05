@@ -42,18 +42,19 @@ const Form = () => {
     const data = {
       ...formData,
     };
+    console.log("FormData: ", formData);
 
     const config: AxiosRequestConfig = {
-      method: isEditing ? 'PUT' : 'POST',
-      url: isEditing ? `/employees/${employeeId}` : '/employees',
+      method: 'POST',
+      url: '/employees',
       data,
       withCredentials: true,
     };
 
     requestBackend(config)
       .then(() => {
-        toast.info('Empregado cadastrado com sucesso');
-        history.push('/admin/emplyees');
+        toast.info('Cadastrado com sucesso');
+        history.push('/admin/employees');
       })
       .catch(() => {
         toast.error('Erro ao cadastrar empregado');
@@ -127,7 +128,6 @@ const Form = () => {
                   {...field}
                   options={selectDepartments}
                   classNamePrefix="product-crud-select"
-                  isMulti
                   getOptionLabel={(department: Department) => department.name}
                   getOptionValue={(department: Department) =>
                     String(department.id)
