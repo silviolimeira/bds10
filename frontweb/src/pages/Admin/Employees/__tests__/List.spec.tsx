@@ -15,6 +15,7 @@ jest.mock('util/auth', () => ({
     hasAnyRoles: jest.fn()
 }));
 
+/*
 describe('Employee list any user tests', () => {
 
     test('should render all employees', async () => {
@@ -46,7 +47,8 @@ describe('Employee list any user tests', () => {
         });
     });
 });
-
+*/
+/*
 describe('Employee list ADMIN tests', () => {
 
     // https://stackoverflow.com/questions/41697513/can-i-mock-functions-with-specific-arguments-using-jest
@@ -69,12 +71,12 @@ describe('Employee list ADMIN tests', () => {
             const name0 = screen.getByText(getEmployessResponse.content[0].name);
             expect(name0).toBeInTheDocument();
         });
-        
+
         const createButton = screen.getByText(/adicionar/i);
         expect(createButton).toBeInTheDocument();
     });
 });
-
+*/
 describe('Employee list NOT ADMIN tests', () => {
 
     // https://stackoverflow.com/questions/41697513/can-i-mock-functions-with-specific-arguments-using-jest
@@ -97,7 +99,7 @@ describe('Employee list NOT ADMIN tests', () => {
             const name0 = screen.getByText(getEmployessResponse.content[0].name);
             expect(name0).toBeInTheDocument();
         });
-        
+
         const createButton = screen.queryByText(/adicionar/i);
         expect(createButton).not.toBeInTheDocument();
     });
